@@ -15,7 +15,7 @@
 %% Model 3 - Integrated Coulomb and Viscous model
 
 %% Model 4 - Stribeck model
-Fc = 2;%(N)
+Fc = 3;%(N)
 Fapp = Fc/2;
 kv = 40.101e-2;%(N/m)
 Fs = Fc*1.3;%(N)
