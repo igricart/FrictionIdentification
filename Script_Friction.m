@@ -19,21 +19,23 @@ Fc = 3;%(N)
 Fapp = Fc/2;
 kv = 40.101e-2;%(N/m)
 Fs = Fc*1.3;%(N)
-vs = 1.6e2;%(m/s)
+vs = 1.6e1;%(m/s)
 i = 2;%
 
 %% Model 5 - Dahl Model
 
 %Fc = 3;%(N)
-sigma0 = 160.74;%(N/m)
+sigma0 = 10e4;%(N/m)
 
 %% Model 6 - LuGre
-
-sigma1 = 6e-2;
-sigma2 = 26e-2;
+Fc = 2.4;
+Fs = 4.9;
+i = 6.7;
+sigma1 = 500;
+sigma2 = 11.1;
 
 %% Model parameters
-mass = 3.67;
+mass = 1;
 
 %% Control parameters
 ctrl_ts = 1e-3;
