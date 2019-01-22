@@ -15,27 +15,32 @@
 %% Model 3 - Integrated Coulomb and Viscous model
 
 %% Model 4 - Stribeck model
-Fc = 3;%(N)
-Fapp = Fc/2;
-kv = 40.101e-2;%(N/m)
-Fs = Fc*1.3;%(N)
-vs = 1.6e1;%(m/s)
+kv = 1;%(N/m)
+vs = 0.01;%(m/s)
 i = 2;%
 
 %% Model 5 - Dahl Model
 
 %Fc = 3;%(N)
-sigma0 = 10e4;%(N/m)
+sigma0 = 1e5;%(N/m)
 
 %% Model 6 - LuGre
-Fc = 2.4;
-Fs = 4.9;
-i = 6.7;
-sigma1 = 500;
-sigma2 = 11.1;
+Fc = 0.41;
+Fs = 0.7;
+%i = 6.7;
+sigma1 = sqrt(1e5);
+sigma2 = 0.4;
+
+% Kermani paper parameters
+Fc = 2;
+Fs = 3;
+i = 2;
+sigma0 = 1000;
+sigma1 = 200;
+sigma2 = 1;
 
 %% Model parameters
-mass = 1;
+mass = 3.14;
 
 %% Control parameters
 ctrl_ts = 1e-3;
