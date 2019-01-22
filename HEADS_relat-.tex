@@ -18,8 +18,19 @@ The main goal from this study is to allow a friction compensation during online 
 
 For now the main difficulty is to separate the torque caused by the friction from the control. Doing that allow us to have a better understanding of what characteristics the friction presents in Pre-Slide and Sliding regime.
 
+\section{Friction Methodology}
+According to Kermani,2007 
 
-    \section{Friction Methodology}
-    According to Kermani,2007 
+\section{Tests}
+
+\textbf{2018-12-10}
+
+Tests with coulomb Friction were made in order to better understand its influence in system dynamics. Due to its equation, it presents high frequency switch when the input torque is lower than $F_{static}$.
+
+$ F_{coulomb} = sign(\dot{x})F_{static}$
+
+Coulomb Friction and Viscous Friction model were implemented, but are not useful due to lack of realistic behavior.
+
+The main problem occurs when the real system has stick-slip effect. Dahl and LuGre are some models that could present that behavior.
 
 \end{document}
