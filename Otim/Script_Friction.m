@@ -46,3 +46,6 @@ mass = 3.14;
 ctrl_ts = 1e-3;
 daq_ts = 1e-3;
 ctrl_mass = mass;
+
+tol_ss = 5e-6;
+ts_buffer_stop = 1e-2;
