@@ -46,3 +46,7 @@ mass = 3.14;
 ctrl_ts = 1e-3;
 daq_ts = 1e-3;
 ctrl_mass = mass;
+
+%% Simulation parameters
+ts_buffer_stop = ctrl_ts;
+%tol_ss = ref_angle*5e-3;
