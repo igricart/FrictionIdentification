@@ -1,11 +1,11 @@
-function [X_alltime_best, F_alltime_best] = Static_Identif(fx_cost, fx_constraint, fx_barrier, upper_bound, lower_bound)
+function [X_alltime_best, F_alltime_best] = Static_Identif(fx_cost, fx_constraint, fx_barrier, upper_bound, lower_bound, PopSize)
     %% Static.m
     % Script used to identify LuGre static parameters Fc, Fs, Vs and sigma2
     % using PSO
 
     %Part1 - The setting of some parameters
     
-    PopSize = 100;
+    %PopSize = 100;
     Dim = 4;
     c1 = 2;
     c2 = 2;

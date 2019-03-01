@@ -35,8 +35,8 @@ sigma2 = 0.4;
 Fc = 2;
 Fs = 3;
 i = 2;
-sigma0 = 1000;
-sigma1 = 200;
+sigma0 = 5000;
+sigma1 = 1000;
 sigma2 = 1;
 
 %% Model parameters
@@ -50,3 +50,8 @@ ctrl_mass = mass;
 %% Simulation parameters
 ts_buffer_stop = ctrl_ts;
 %tol_ss = ref_angle*5e-3;
+
+% Variables Initialized but that will be replaced in other scripts
+ref_angle = 0.05;
+tol_ss = ref_angle*5e-3;
+ctrl_selector = 2; %Velocity
