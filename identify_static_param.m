@@ -34,7 +34,7 @@ fbarrier = @(gx) fun_barrier(gx, barrier_selector);
 rng('default');
 
 %% Run PSO algorithm
-otim = Static_Identif(fcost, fconstraint, fbarrier, upper_bound, lower_bound, popSize);
+otim = static_optim(fcost, fconstraint, fbarrier, upper_bound, lower_bound, popSize);
 
 %% Compare friction curves (real x optim)
 % Sample number
