@@ -19,3 +19,11 @@ This script requires `unpack.m` to generate joint data, `interval_definition.m` 
 
 ### Optimization
 `getCost.m`,`fun_contraint.m` and `fun_barrier.m` will be used within `static_optim.m` to run PSO algorithm. Then a plot is given comparing actual friction points and the friction model with parameters from PSO. 
+
+## 2. Dynamic Parameters Identification
+`identify_dynamic_param.m` 
+
+
+#References
+[LuGre Aproximation Models for Static and Dynamic parameters identification](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.887.5758&rep=rep1&type=pdf)
+[Friction Identification and Compensation, Kermani 2007](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=4389106)
