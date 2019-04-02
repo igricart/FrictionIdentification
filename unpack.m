@@ -50,7 +50,17 @@ if exist('friction_compensation')
    joint.friction.friction = friction_compensation.friction;
 end
 
-if exist('joint_obs')
+if exist('joint_obs')  && joint_name == "roll"
+   joint.vel.time = joint_obs.jointsOut.time - roll_motor_r.joints_state_samples.time(1);
+   joint.vel.signal = joint_obs.jointsOut.speed;
+end
+
+if exist('joint_obs')  && joint_name == "pitch"
+   joint.vel.time = joint_obs.jointsOut.time - pitch_motor_r.joints_state_samples.time(1);
+   joint.vel.signal = joint_obs.jointsOut.speed;
+end
+
+if exist('joint_obs')  && joint_name == "yaw"
    joint.vel.time = joint_obs.jointsOut.time - yaw_motor_r.joints_state_samples.time(1);
    joint.vel.signal = joint_obs.jointsOut.speed;
 end

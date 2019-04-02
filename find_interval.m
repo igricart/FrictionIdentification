@@ -16,6 +16,6 @@ function [idx_init1, idx_final1, idx_init2, idx_final2] = find_interval(t_init, 
         disp('Time values are the same');
     else
         msg = 'Time values are different from data1 and data2';
-        error(msg);
+        warning(msg);
     end
 end
