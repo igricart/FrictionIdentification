@@ -10,7 +10,7 @@ function [friction, vel, otim] = identify_static_param(joint_name)
 joint = unpack(joint_name);
 
 % Define intervals with constant velocity
-interval = interval_definition(joint.position.time, joint.effort, joint.vel.time, joint.vel.signal);
+interval = interval_definition(joint.position.time, joint.effort, joint.vel.time, joint.vel.signal,'static');
 
 % Filter signal to define friction x vel point
 [friction, vel] = signal_filter(interval, joint);
@@ -20,7 +20,8 @@ interval = interval_definition(joint.position.time, joint.effort, joint.vel.time
 %% ------------------------------------------Optimization 
 %% Setup
 %Param settings
-lower_bound = [1 1 0.001 0.1];
+%[Fc Fs Vs Sigma 2]
+lower_bound = [0.3 1 0.001 0.1];
 upper_bound = [10 10 1 100];
 barrier_selector = 1;
 popSize = 100;
@@ -46,7 +47,12 @@ X = otim;
 friction_optim = (X(:,1) + (X(:,2)-X(:,1)) .* exp(-( (1 ./ X(:,3)) * vel_optim' ).^2)) .* sign(vel_optim)' + X(:,4) * vel_optim';
 
 fig = figure();
-subplot(2,1,1);
-plot(vel, friction,'*');
-subplot(2,1,2);
+title(joint_name);
+hold on
+%subplot(2,1,1);
+plot(vel, friction,'r*');
+%subplot(2,1,2);
 plot(vel_optim, friction_optim);
+xlabel('Velocity(rad/s)');
+ylabel('Friction(N.m)'); 
+hold off

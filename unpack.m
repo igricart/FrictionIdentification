@@ -27,13 +27,19 @@ if exist('yaw_motor_r') && joint_name == "yaw"
 end
 
 %% Joint_ref
-if exist('joint_ref')
-   joint.ref.time = joint_ref.jointsRef.time - joint_ref.jointsRef.time(1);
-   joint.ref.position = joint_ref.jointsRef.position;
-   joint.ref.vel = joint_ref.jointsRef.speed;
-   joint.ref.acc = joint_ref.jointsRef.acceleration;
-   joint.ref.effort = joint_ref.jointsRef.effort;
+% Static parameter estimation
+if exist('joint_friction_identification_constant_velocity')
+   joint.ref.time = joint_friction_identification_constant_velocity.joint_velocity_ref.time - joint_friction_identification_constant_velocity.joint_velocity_ref.time(1);
+   joint.ref.position = joint_friction_identification_constant_velocity.joint_velocity_ref.position;
+   joint.ref.vel = joint_friction_identification_constant_velocity.joint_velocity_ref.speed;
 end
+
+% Dynamic parameter estimation
+if exist('joint_friction_identification_sine_effort')
+   joint.ref.time = joint_friction_identification_sine_effort.joint_effort_ref.time - joint_friction_identification_sine_effort.joint_effort_ref.time(1);
+   joint.ref.effort = joint_friction_identification_sine_effort.joint_effort_ref.effort;
+end
+
 
 % %% Joint_obs
 % if exist('joint_obs')
