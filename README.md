@@ -21,7 +21,7 @@ This script requires `unpack.m` to generate joint data, `interval_definition.m` 
 `getCost.m`,`fun_contraint.m` and `fun_barrier.m` will be used within `static_optim.m` to run PSO algorithm. Then a plot is given comparing actual friction points and the friction model with parameters from PSO. 
 
 ## 2. Dynamic Parameters Identification
-`identify_dynamic_param.m` 
+Run `identify_dynamic_param.m`, input parameters should be joint name `"yaw"`, `"pitch"`, `"roll"`, sigma2 value and joint mass
 
 
 #References
