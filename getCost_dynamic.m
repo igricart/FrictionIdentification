@@ -5,8 +5,10 @@
 % Output: cost from error between (u - M * ddx) and
 % sigma0 * q + (sigma1 + sigma2) * dq
 
-function cost = getCost_dynamic(param, data, mass)
-    friction1 = param(:,1) * data.x' + (param(:,2) + param(:,3)) * data.dx';
-    friction2 =  data.u' - mass * data.ddx';
-    cost = sum( (friction1 - friction2).^2, 2) / length(data.x);
+function cost = getCost_dynamic(param, x, dx, ddx, u, mass, sigma2)
+    friction1 = param(:,1) * x' + (param(:,2) + sigma2) * dx';
+    %friction2 =  u' - mass * ddx';
+    %cost = sum( (friction1 - friction2).^2, 2) / length(x);
+    u_exp = friction1 + mass * ddx';
+    cost = sum( (u' - u_exp).^2, 2) / length(u);
 end
