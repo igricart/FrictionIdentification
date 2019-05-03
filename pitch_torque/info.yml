@@ -1,0 +1,7 @@
+---
+- time: 20190402-1810
+  cmdline: "/home/dev/dev/tools/syskit/bin/syskit -rlive -c"
+  robot_name: live
+  robot_type: live
+  app_name: heads
+  app_dir: "/home/dev/dev/bundles/heads"
