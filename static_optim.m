@@ -25,7 +25,6 @@ function [X_alltime_best, F_alltime_best] = Static_Identif(fx_cost, fx_constrain
     R2 = rand(MaxIter + 1,1);
     
     % Compute population cost and initialize constraint gain
-%     cost = getCost(X, data);
     cost = fx_cost(X);
     [g_x, num_constraints] = fx_constraint(X);
     barrier = fx_barrier(g_x);
