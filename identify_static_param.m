@@ -1,28 +1,29 @@
 %% Script to identify friction parameters
-function [friction, vel, otim] = identify_static_param(joint_name)
+function [friction, vel, otim, interval] = identify_static_param(joint_name, friction_joint, vel_joint)
 
 %% -------------------------------------------Static parameters
 %% Signal processing
 % In this section the log file will be loaded so that in the end we can
 % obtain friction and velocity points to use with PSO algorithm.
 
-% Load joint parameters
-joint = unpack(joint_name);
+% % Load joint parameters
+% joint = unpack(joint_name);
+% 
+% % Define intervals with constant velocity
+% interval = interval_definition(joint.position.time, joint.effort, joint.vel.time, joint.vel.signal,'static')
+% 
+% % Filter signal to define friction x vel point
+% [friction, vel] = signal_filter(interval, joint);
 
-% Define intervals with constant velocity
-interval = interval_definition(joint.position.time, joint.effort, joint.vel.time, joint.vel.signal,'static');
-
-% Filter signal to define friction x vel point
-[friction, vel] = signal_filter(interval, joint);
-
-
+friction = friction_joint;
+vel = vel_joint;
 
 %% ------------------------------------------Optimization 
 %% Setup
 %Param settings
 %[Fc Fs Vs Sigma 2]
-lower_bound = [0.3 1 0.001 0.1];
-upper_bound = [10 10 1 100];
+lower_bound = [0.35 0.35 0.001 0.1];
+upper_bound = [1 1 1 100];
 barrier_selector = 1;
 popSize = 100;
 
